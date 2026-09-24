@@ -26,4 +26,31 @@ class Lesson {
       dayOfWeek: dayOfWeek ?? this.dayOfWeek,
     );
   }
+
+  Map<String, dynamic> toJson(){
+    return {
+      'title': title,
+      'dayOfWeek': dayOfWeek,
+      'startHour': startTime.hour,
+      'startMinute': startTime.minute,
+      'endHour': endTime.hour,
+      'endMinute': endTime.minute,
+    };
+  }
+
+  factory Lesson.fromJson(Map<String, dynamic> json){
+    return Lesson(
+      title: json['title'] as String,
+      dayOfWeek: json['dayOfWeek'] as int,
+      startTime: TimeOfDay(
+        hour: json['startHour'],
+        minute: json['startMinute']
+      ),
+      endTime: TimeOfDay(
+        hour: json['endHour'],
+        minute: json['endMinute']
+      ),
+    );
+  }
+
 }
