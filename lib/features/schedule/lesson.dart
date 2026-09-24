@@ -43,12 +43,12 @@ class Lesson {
       title: json['title'] as String,
       dayOfWeek: json['dayOfWeek'] as int,
       startTime: TimeOfDay(
-        hour: json['startHour'],
-        minute: json['startMinute']
+        hour: json['startHour'] as int,
+        minute: json['startMinute'] as int,
       ),
       endTime: TimeOfDay(
-        hour: json['endHour'],
-        minute: json['endMinute']
+        hour: json['endHour'] as int,
+        minute: json['endMinute'] as int,
       ),
     );
   }
